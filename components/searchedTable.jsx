@@ -17,12 +17,12 @@ import {
   Chip,
   Pagination,
 } from "@nextui-org/react";
-import {PlusIcon} from "../public/PlusIcon";
-import {VerticalDotsIcon} from "../public/VerticalDotsIcon";
-import {SearchIcon} from "../public/SearchIcon";
-import {ChevronDownIcon} from "../public/ChevronDownIcon";
-import {columns, contracts, statusOptions, typeOptions} from "../data";
-import {capitalize} from "../utils";
+import { PlusIcon } from "../public/PlusIcon";
+import { VerticalDotsIcon } from "../public/VerticalDotsIcon";
+import { SearchIcon } from "../public/SearchIcon";
+import { ChevronDownIcon } from "../public/ChevronDownIcon";
+import { columns, contracts, statusOptions, typeOptions } from "../data";
+import { capitalize } from "../utils";
 
 const statusColorMap = {
   active: "success",
@@ -58,7 +58,7 @@ export default function SearchedTable() {
 
     if (hasSearchFilter) {
       filteredContracts = filteredContracts.filter((contract) =>
-      contract.name.toLowerCase().includes(filterValue.toLowerCase()),
+        contract.name.toLowerCase().includes(filterValue.toLowerCase()),
       );
     }
     if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
@@ -124,7 +124,7 @@ export default function SearchedTable() {
                   <VerticalDotsIcon className="text-default-300" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu>
+              <DropdownMenu className="text-black">
                 <DropdownItem>Visualizar</DropdownItem>
                 <DropdownItem>Editar</DropdownItem>
                 <DropdownItem>Excluir</DropdownItem>
@@ -163,14 +163,14 @@ export default function SearchedTable() {
     }
   }, []);
 
-  const onClear = React.useCallback(()=>{
+  const onClear = React.useCallback(() => {
     setFilterValue("")
     setPage(1)
-  },[])
+  }, [])
 
   const topContent = React.useMemo(() => {
     return (
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 ">
         <div className="flex justify-between gap-3 items-end">
           <Input
             isClearable
@@ -182,7 +182,7 @@ export default function SearchedTable() {
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
-          <Dropdown>
+            <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
                 <Button endContent={<ChevronDownIcon className="text-small" />} variant="flat">
                   Tipo
@@ -195,6 +195,7 @@ export default function SearchedTable() {
                 selectedKeys={typesFilter}
                 selectionMode="multiple"
                 onSelectionChange={setTypesFilter}
+                className="text-black"
               >
                 {typeOptions.map((type) => (
                   <DropdownItem key={type.uid} className="capitalize">
@@ -216,6 +217,7 @@ export default function SearchedTable() {
                 selectedKeys={statusFilter}
                 selectionMode="multiple"
                 onSelectionChange={setStatusFilter}
+                className="text-black"
               >
                 {statusOptions.map((status) => (
                   <DropdownItem key={status.uid} className="capitalize">
@@ -237,6 +239,7 @@ export default function SearchedTable() {
                 selectedKeys={visibleColumns}
                 selectionMode="multiple"
                 onSelectionChange={setVisibleColumns}
+                className="text-black"
               >
                 {columns.map((column) => (
                   <DropdownItem key={column.uid} className="capitalize">
@@ -280,7 +283,7 @@ export default function SearchedTable() {
   const bottomContent = React.useMemo(() => {
     return (
       <div className="py-2 px-2 flex justify-between items-center">
-        
+
         <Pagination
           isCompact
           showControls

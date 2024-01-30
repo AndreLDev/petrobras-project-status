@@ -1,8 +1,7 @@
 'use client'
 
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem} from "@nextui-org/react";
-import {AcmeLogo} from "../public/AcmeLogo";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Image} from "@nextui-org/react";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -23,8 +22,8 @@ export default function NavBar() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">PSC</p>
+          <Image width={40} height={40} src="https://logospng.org/download/petrobras/logo-petrobras-escudo-256.png"/>
+          <p className="font-bold text-inherit px-2">PSC</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -48,7 +47,7 @@ export default function NavBar() {
                 index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "secondary"
               }
               className={index === 2? "w-full" : index === menuItems.length - 1 ? "w-full" : "w-full text-white"}
-              href="#"
+              href={index === 2 ? 'contratacao' : index === 1 ? '../' : ''}
               size="lg"
             >
               {item}

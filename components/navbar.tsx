@@ -16,7 +16,7 @@ export default function NavBar() {
 
 
   return (
-    <Navbar position='static' maxWidth='full' className="text-black bg-green-400" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar position='sticky' maxWidth='full' className="text-black bg-green-400" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -27,26 +27,26 @@ export default function NavBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <h2>Plataforma de Status de Contratos</h2>
+      <h2 className="text-xs sm:text-base">Plataforma de Status de Contratos</h2>
       
       <NavbarContent justify="end">
         <NavbarItem className="lg:flex">
-          <Link className="text-black" href="#">Login</Link>
+          <Link className="text-xs sm:text-base" href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} href="#" variant="flat">
+          <Button className="text-xs sm:text-base" as={Link} href="#" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu  className="bg-green-500 w-1/6 " >
+      <NavbarMenu  className="bg-green-500 lg:w-1/6 sm:w-full" >
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               color={
                 index === menuItems.length - 1 ? "danger" : "foreground"
               }
-              className={index === 2? "w-full" : index === menuItems.length - 1 ? "w-full" : "w-full text-white"}
+              className={index === menuItems.length - 1 ? "" : "text-white"}
               href={index === 2 ? 'contratacao' : index === 1 ? '../' : ''}
               size="lg"
             >

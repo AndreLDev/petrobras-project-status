@@ -31,7 +31,7 @@ export default function NavBar() {
       
       <NavbarContent justify="end">
         <NavbarItem className="lg:flex">
-          <Link className="text-xs sm:text-base" href="#">Login</Link>
+          <Link className="text-xs sm:text-base" href="login">Login</Link>
         </NavbarItem>
         <NavbarItem>
           <Button className="text-xs sm:text-base" as={Link} href="#" variant="flat">
